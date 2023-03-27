@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masyvai</title>
+</head>
+
+<body>
+    <script>
+        function rand(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        document.write('<h2>Pirma užduotis</h2>');
+        console.log('Pirma užduotis');
+
+
+        let letters = 'ABCD';
+        let array = [];
+        let letterA = 0;
+        let letterB = 0;
+        let letterC = 0;
+        let letterD = 0;
+
+        for (let i = 0; i < 200; i++) {
+            let letter = letters[rand(0, 3)];
+            array.push(letter);
+
+            if (array[i] === 'A') {
+                letterA++;
+            }
+
+            if (array[i] === 'B') {
+                letterB++;
+            }
+            if (array[i] === 'C') {
+                letterC++;
+            }
+
+            if (array[i] === 'D') {
+                letterD++;
+            }
+
+        }
+
+        console.log(array);
+
+        console.log('Raidžių A masyve yra:  ', letterA);
+        console.log('Raidžių B masyve yra:  ', letterB);
+        console.log('Raidžių C masyve yra:  ', letterC);
+        console.log('Raidžių D masyve yra:  ', letterD);
+
+        document.write('Raidžių A masyve yra:  ', letterA + '<br/>');
+
+        document.write('Raidžių B masyve yra:  ', letterB + '<br/>');
+
+        document.write('Raidžių C masyve yra:  ', letterC + '<br/>');
+
+        document.write('Raidžių D masyve yra:  ', letterD + '<br/>');
+
+
+
+        document.write('<h2>Antra užduotis</h2>');
+
+        console.log('Antra užduotis');
+
+        console.log(array.sort());
+
+        document.write('Išrūšiuotas masyvas pagal abecėlę: ', array.sort());
+
+
+        document.write('<h2>Trečia užduotis</h2>');
+
+        console.log('Trečia užduotis');
+
+        let array1 = [];
+        let array2 = [];
+        let array3 = [];
+
+
+        for (let i = 0; i < 200; i++) {
+
+            letter = letters[rand(0, 3)];
+            array1.push(letter);
+
+            letter = letters[rand(0, 3)];
+            array2.push(letter);
+
+            letter = letters[rand(0, 3)];
+            array3.push(letter);
+        }
+
+        console.log(array1);
+        console.log(array2);
+        console.log(array3);
+
+        document.write('Masyvas 1: ', array1 + '<br/>');
+        document.write('Masyvas 2: ', array2 + '<br/>');
+        document.write('Masyvas 3: ', array3 + '<br/>');
+
+        let newArray = [];
+        let uniqueArr = [];
+        let uniqueArrComb = [];
+
+        for (let i = 0; i < array1.length; i++) {
+            newArray.push(array1[i] + array2[i] + array3[i]);
+
+
+            if (array1[i] !== array2[i] && array1 !== array3[i] && array2[i] !== array3[i]) {
+                uniqueArr++;
+            }
+            if (array1[i] !== array2[i] && array1 !== array3[i] && array2[i] !== array3[i]) {
+                uniqueArrComb++;
+            }
+        }
+        console.log(newArray);
+        console.log(uniqueArr);
+        console.log(uniqueArrComb);
+
+        document.write('Sudėti masyvai pagal jų indeksų reikšmes: ', newArray + '<br/>');
+        document.write('Unikalių reikšmių masyve kiekis: ', uniqueArr + '<br/>');
+        document.write('Unikalių kombinacijų masyve kiekis: ', uniqueArrComb + '<br/>');
+
+        document.write('<h2>Ketvirta užduotis</h2>');
+
+        console.log('Ketvirta užduotis');
+
+        let arrayA = [];
+        let arrayB = [];
+
+
+        while (arrayA.length < 100) {
+            let random = rand(100, 999);
+            if (!arrayA.includes(random)) {
+                arrayA.push(random);
+            }
+        }
+
+        while (arrayB.length < 100) {
+            let random = rand(100, 999);
+            if (!arrayB.includes(random) && !arrayA.includes(random)) {
+                arrayB.push(random);
+            }
+        }
+
+
+        console.log(arrayA);
+        console.log(arrayB);
+        document.write('Masyvas A:', arrayA + '<br/>');
+        document.write('Masyvas B:', arrayB + '<br/>');
+
+        document.write('<h2>Penkta užduotis</h2>');
+
+console.log('Penkta užduotis');
+
+let arrayC = [];
+
+
+
+
+for (i=0; i< arrayA.length; i++){
+    let number = arrayA[i];
+    let check = arrayB.includes(number);
+    if(check === false){
+        arrayC.push(number);
+    }
+}
+
+console.log(arrayC);
+document.write('Skaičiai iš pirmo masyvo (Masyvo A): ' , arrayC + '<br/>');
+
+
+
+document.write('<h2>Šešta užduotis</h2>');
+
+console.log('Šeštas užduotis');
+
+let repeatArr = [];
+
+for (i=0; i<arrayA.length; i++){
+    let number = arrayA[i];
+    let check = arrayB.includes(number);
+    if(check=== true){
+        repeatArr.push(number);
+    }
+}
+console.log(repeatArr);
+
+document.write('Skaičiai kurie kartojasi: ' , repeatArr + '<br/>');
+
+
+
+
+    </script>
+</body>
+
+</html>
